@@ -74,6 +74,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY $OBFS.crt /etc/nginx/$OBFS.crt
 COPY $OBFS.key /etc/nginx/$OBFS.key
 COPY index.html /etc/nginx/html/index.html
+RUN chmod 755 /usr/bin/ss-obfs.sh
 
 EXPOSE $SERVER_PORT/tcp $SERVER_PORT/udp
 CMD ss-obfs.sh $SERVER_PORT $PASSWD $METHOD
